@@ -1,0 +1,3 @@
+[submodule "spgl1"]
+	path = spgl1
+	url = git@github.com:mpf/spgl1.git

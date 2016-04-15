@@ -60,7 +60,7 @@ for i = 1:N
 %             sum(c) == 1;
 %             cvx_end;
             c = spg_bp(Y, y);
-        elseif ( strcmp(Opt , 'L1Noisy') ) % same as lasso
+        elseif ( strcmp(Opt , 'L1Noisy') ) % same
             cvx_begin;
             cvx_precision high
             variable c(N-1,1);
@@ -78,13 +78,6 @@ for i = 1:N
             [Y eye(D)] * c  == y;
             sum(c(1:N-1)) == 1;
             cvx_end;
-        elseif ( strcmp(Opt , 'L1OUT'))
-            cvx_begin;
-            cvx_precision high
-            variable c(N-1,1);
-            minimize( norm(c,1) + norm(Y * c - y,1) )
-            subject to
-            norm
         end
     else
         if ( strcmp(Opt , 'Lasso') )
